@@ -6,11 +6,11 @@ const db = require('../database/db')
 class Fruit {
     constructor (fruit) {   
         this.id = fruit.id;  
-        this.name = fruit.fruit_name;              // 
+        this.name = fruit.fruit_name;              
         this.genus = fruit.genus;        
         this.family = fruit.family;
         this.order = fruit.fruit_order;
-        this.nutritutions = fruit.nutritutions;
+        this.nutritions = fruit.nutritions;
     }
 
     static async showAll() {
@@ -19,9 +19,8 @@ class Fruit {
     }
 
     static async show(name) {
-        const response = await db.query ('SELECT * FROM fruits WHERE LOWER (fruit_name) =$1;',(name))
+        const response = await db.query ('SELECT * FROM fruits WHERE LOWER(fruit_name) =$1;',[name])
         
-
         if (response.rows.length != 1) {
             throw 'The fruit does not exist'
         } else {
@@ -38,12 +37,12 @@ class Fruit {
         const existing = await db.query ('SELECT * FROM fruits WHERE LOWER(fruit_name) = $1;', [data.name.toLowerCase()]);
 
     //    const fruit = fruits.find ((fruit)=> fruit.name.toLowerCase() == data.name.toLowerCase());
-        if (existing.rows.length>1) {
-            throw 'The fruit already exists'
+        if (existing.rows.length > 0) {
+            throw 'The fruit already exists';
         }
         
 
-            new response = await db.query ('INSERT INTO fruits (fruit_name, genus, family, fruit_order, nurtitions) VALUES ($1, $2, $3, $4, $5) RETURNING *;', [data.name,data.genus,data.family,data.order,data.nutritutions])
+        const response = await db.query ('INSERT INTO fruits (fruit_name, genus, family, fruit_order, nutritions) VALUES ($1, $2, $3, $4, $5) RETURNING *;', [data.name,data.genus,data.family,data.order,data.nutritions])
             // newFruit ['id'] = Math.max(...fruits.map (fruit => fruit.id)) + 1;
             // fruits.push (newFruit);
 
@@ -79,7 +78,7 @@ class Fruit {
 
     }
 
-    async destroy (data){
+    async destroy (){
 
         await db.query('DELETE FROM fruits WHERE id = $1;', [this.id]);
 
