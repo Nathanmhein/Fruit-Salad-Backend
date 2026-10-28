@@ -18,7 +18,7 @@ class Fruit {
         return response.rows.map ( fruit => new Fruit(fruit))
     }
 
-    static show(name) {
+    static async show(name) {
         const response = await db.query ('SELECT * FROM fruits WHERE LOWER (fruit_name) =$1;',(name))
         
 
