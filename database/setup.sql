@@ -1,0 +1,55 @@
+DROP TABLE IF EXISTS fruits;
+
+CREATE TABLE fruits (
+    id INT GENERATED ALWAYS AS IDENTITY,
+    fruit_name VARCHAR (50) UNIQUE NOT NULL,
+    genus  VARCHAR (50),
+    family VARCHAR (50),
+    fruit_order VARCHAR (50),
+    nutritions JSONB,
+    PRIMARY KEY (id)
+);
+
+INSERT INTO fruits (fruit_name, genus, family, fruit_order, nutritions)
+VALUES     
+    ('Apple', 'Malus', 'Rosaceae', 'Rosales', '{"carbohydrates":11.4,"protein":0.3,"fat":0.4,"calories":52,"sugar":10.3}'),
+    ('Apricot', 'Prunus', 'Rosaceae', 'Rosales', '{"carbohydrates":3.9,"protein":0.5,"fat":0.1,"calories":15,"sugar":3.2}'),
+    ('Avocado', 'Persea', 'Lauraceae', 'Laurales', '{"carbohydrates":8.53,"protein":2,"fat":14.66,"calories":160,"sugar":0.66}'),
+    ('Banana', 'Musa', 'Musaceae', 'Zingiberales', '{"carbohydrates":22,"protein":1,"fat":0.2,"calories":96,"sugar":17.2}'),
+    ('Blackberry', 'Rubus', 'Rosaceae', 'Rosales', '{"carbohydrates":9,"protein":1.3,"fat":0.4,"calories":40,"sugar":4.5}'),
+    ('Blueberry', 'Fragaria', 'Rosaceae', 'Rosales', '{"carbohydrates":5.5,"protein":0,"fat":0.4,"calories":29,"sugar":5.4}'),
+    ('Cherry', 'Prunus', 'Rosaceae', 'Rosales', '{"carbohydrates":12,"protein":1,"fat":0.3,"calories":50,"sugar":8}'),
+    ('Cranberry', 'Vaccinium', 'Ericaceae', 'Ericales', '{"carbohydrates":12.2,"protein":0.4,"fat":0.1,"calories":46,"sugar":4}'),
+    ('Dragonfruit', 'Selenicereus', 'Cactaceae', 'Caryophyllales', '{"carbohydrates":9,"protein":9,"fat":1.5,"calories":60,"sugar":8}'),
+    ('Durian', 'Durio', 'Malvaceae', 'Malvales', '{"carbohydrates":27.1,"protein":1.5,"fat":5.3,"calories":147,"sugar":6.75}'),
+    ('Feijoa', 'Sellowiana', 'Myrtaceae', 'Myrtoideae', '{"carbohydrates":8,"protein":0.6,"fat":0.4,"calories":44,"sugar":3}'),
+    ('Fig', 'Ficus', 'Moraceae', 'Rosales', '{"carbohydrates":19,"protein":0.8,"fat":0.3,"calories":74,"sugar":16}'),
+    ('Gooseberry', 'Ribes', 'Grossulariaceae', 'Saxifragales', '{"carbohydrates":10,"protein":0.9,"fat":0.6,"calories":44,"sugar":0}'),
+    ('Grape', 'Vitis', 'Vitaceae', 'Vitales', '{"carbohydrates":18.1,"protein":0.72,"fat":0.16,"calories":69,"sugar":16}'),
+    ('GreenApple', 'Malus', 'Rosaceae', 'Rosales', '{"carbohydrates":3.1,"protein":0.4,"fat":0.1,"calories":21,"sugar":6.4}'),
+    ('Guava', 'Psidium', 'Myrtaceae', 'Myrtales', '{"carbohydrates":14,"protein":2.6,"fat":1,"calories":68,"sugar":9}'),
+    ('Kiwi', 'Apteryx', 'Actinidiaceae', 'Struthioniformes', '{"carbohydrates":15,"protein":1.1,"fat":0.5,"calories":61,"sugar":9}'),
+    ('Kiwifruit', 'Actinidia', 'Actinidiaceae', 'Ericales', '{"carbohydrates":14.6,"protein":1.14,"fat":0.5,"calories":61,"sugar":8.9}'),
+    ('Lemon', 'Citrus', 'Rutaceae', 'Sapindales', '{"carbohydrates":9,"protein":1.1,"fat":0.3,"calories":29,"sugar":2.5}'),
+    ('Lime', 'Citrus', 'Rutaceae', 'Sapindales', '{"carbohydrates":8.4,"protein":0.3,"fat":0.1,"calories":25,"sugar":1.7}'),
+    ('Lingonberry', 'Vaccinium', 'Ericaceae', 'Ericales', '{"carbohydrates":11.3,"protein":0.75,"fat":0.34,"calories":50,"sugar":5.74}'),
+    ('Lychee', 'Litchi', 'Sapindaceae', 'Sapindales', '{"carbohydrates":17,"protein":0.8,"fat":0.44,"calories":66,"sugar":15}'),
+    ('Mango', 'Mangifera', 'Anacardiaceae', 'Sapindales', '{"carbohydrates":15,"protein":0.82,"fat":0.38,"calories":60,"sugar":13.7}'),
+    ('Melon', 'Cucumis', 'Cucurbitaceae', 'Cucurbitaceae', '{"carbohydrates":8,"protein":0,"fat":0,"calories":34,"sugar":8}'),
+    ('Morus', 'Morus', 'Moraceae', 'Rosales', '{"carbohydrates":9.8,"protein":1.44,"fat":0.39,"calories":43,"sugar":8.1}'),
+    ('Orange', 'Citrus', 'Rutaceae', 'Sapindales', '{"carbohydrates":8.3,"protein":1,"fat":0.2,"calories":43,"sugar":8.2}'),
+    ('Papaya', 'Carica', 'Caricaceae', 'Caricacea', '{"carbohydrates":11,"protein":0,"fat":0.4,"calories":43,"sugar":1}'),
+    ('Passionfruit', 'Passiflora', 'Passifloraceae', 'Malpighiales', '{"carbohydrates":22.4,"protein":2.2,"fat":0.7,"calories":97,"sugar":11.2}'),
+    ('Peach', 'Prunus', 'Rosaceae', 'Rosales', '{"carbohydrates":9.5,"protein":0.9,"fat":0.25,"calories":39,"sugar":8.4}'),
+    ('Pear', 'Pyrus', 'Rosaceae', 'Rosales', '{"carbohydrates":15,"protein":0.4,"fat":0.1,"calories":57,"sugar":10}'),
+    ('Persimmon', 'Diospyros', 'Ebenaceae', 'Rosales', '{"carbohydrates":18,"protein":0,"fat":0,"calories":81,"sugar":18}'),
+    ('Pineapple', 'Ananas', 'Bromeliaceae', 'Poales', '{"carbohydrates":13.12,"protein":0.54,"fat":0.12,"calories":50,"sugar":9.85}'),
+    ('Pitahaya', 'Cactaceae', 'Cactaceae', 'Caryophyllales', '{"carbohydrates":7,"protein":1,"fat":0.4,"calories":36,"sugar":3}'),
+    ('Plum', 'Prunus', 'Rosaceae', 'Rosales', '{"carbohydrates":11.4,"protein":0.7,"fat":0.28,"calories":46,"sugar":9.92}'),
+    ('Pomegranate', 'Punica', 'Lythraceae', 'Myrtales', '{"carbohydrates":18.7,"protein":1.7,"fat":1.2,"calories":83,"sugar":13.7}'),
+    ('Raspberry', 'Rubus', 'Rosaceae', 'Rosales', '{"carbohydrates":12,"protein":1.2,"fat":0.7,"calories":53,"sugar":4.4}'),
+    ('Strawberry', 'Fragaria', 'Rosaceae', 'Rosales', '{"carbohydrates":5.5,"protein":0.8,"fat":0.4,"calories":29,"sugar":5.4}'),
+    ('Tangerine', 'Citrus', 'Rutaceae', 'Sapindales', '{"carbohydrates":8.3,"protein":0,"fat":0.4,"calories":45,"sugar":9.1}'),
+    ('Tomato', 'Solanum', 'Solanaceae', 'Solanales', '{"carbohydrates":3.9,"protein":0.9,"fat":0.2,"calories":74,"sugar":2.6}'),
+    ('Watermelon', 'Citrullus', 'Cucurbitaceae', 'Cucurbitales', '{"carbohydrates":8,"protein":0.6,"fat":0.2,"calories":30,"sugar":6}');
+
